@@ -1,10 +1,10 @@
 <div class="relative">
   <button
     (click)="toggleDropdown()"
-    class="bg-white px-4 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 ring-2 ring-gray-300 hover:ring-2 hover:ring-gray-500 transition-all"
+    class="bg-white px-4 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 ring-2 ring-gray-200 hover:ring-2 hover:ring-gray-300 transition-all duration-200 group"
   >
-    {{ getSelectedLabel() }}
-    <lucide-icon name="chevron-down" class="w-4 h-4 ml-1" />
+    <span class="group-hover:text-gray-800">{{ getSelectedLabel() }}</span>
+    <lucide-icon name="chevron-down" class="w-4 h-4 ml-1 group-hover:text-gray-800" />
   </button>
   <div 
     *ngIf="isOpen"

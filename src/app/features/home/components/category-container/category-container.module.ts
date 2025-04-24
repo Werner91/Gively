@@ -13,7 +13,8 @@ import {
   Beer, 
   Signature, 
   ChevronLeft, 
-  ChevronRight 
+  ChevronRight,
+  CalendarHeart
 } from 'lucide-angular';
 
 @NgModule({
@@ -31,7 +32,8 @@ import {
       Beer,
       Signature,
       ChevronLeft,
-      ChevronRight
+      ChevronRight,
+      CalendarHeart
     })
   ],
   exports: [CategoryContainerComponent]

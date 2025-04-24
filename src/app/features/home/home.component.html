@@ -1,5 +1,5 @@
 <div class="min-h-screen text-text-base">
-  <header class="bg-white sticky top-0 z-50 border-b border-gray-200 shadow-sm">
+  <header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
     <div class="max-w-screen-2xl mx-auto px-4 py-4 flex justify-between items-center">
       <div class="flex items-center gap-2 text-primary font-quicksand text-2xl font-bold">
         <lucide-icon name="gift" class="w-6 h-6" /> Givly
@@ -12,7 +12,11 @@
   </header>
 
   <section class="hero-section relative text-center py-20 px-4 overflow-hidden">
-    <div class="hero-background absolute inset-0 -z-10"></div>
+    <div class="hero-background absolute inset-0 -z-10">
+      <lucide-icon name="sparkles" [size]="128" class="floating-gift"  [absoluteStrokeWidth]="true"></lucide-icon>
+      <lucide-icon name="gift" [size]="196" class="floating-gift"  [absoluteStrokeWidth]="true"></lucide-icon>
+      <lucide-icon name="gift" [size]="196" class="floating-gift"  [absoluteStrokeWidth]="true"></lucide-icon>
+    </div>
     <h1 class="text-4xl md:text-5xl font-quicksand font-bold text-gray-900 mb-6">
       Entdecke die perfekten Geschenke
     </h1>
@@ -20,7 +24,7 @@
       Finde einzigartige und passende Geschenkideen für jeden Anlass und jede Person – einfach, schnell und inspirierend
     </p>
     <div class="max-w-3xl mx-auto flex items-center gap-3">
-      <div class="flex flex-1 items-center bg-white rounded-full px-4 py-3 shadow-md transition-shadow hover:shadow-lg focus-within:shadow-lg">
+      <div class="flex flex-1 items-center bg-white rounded-full px-4 py-3 shadow-md transition-shadow hover:shadow-lg focus-within:shadow-lg ring-1 ring-gray-100">
         <input
           type="text"
           placeholder="Für welchen Anlass suchst du ein Geschenk?"
@@ -96,30 +100,10 @@
   </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <div *ngFor="let item of giftItems" class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
-        <img
-          [src]="item.imageUrl"
-          [alt]="item.title"
-          class="w-full h-52 object-cover border-b"
-        />
-        <div class="p-4">
-          <div class="flex justify-between items-start mb-2">
-            <div>
-              <h3 class="font-semibold text-base">{{ item.title }}</h3>
-              <p class="text-sm text-gray-500">{{ item.category }}</p>
-            </div>
-            <span class="text-primary font-bold">{{ item.price }} €</span>
-          </div>
-          <div class="text-xs mb-2">
-            <span class="bg-tertiary text-text-base rounded px-2 py-0.5 mr-2">{{ item.occasion }}</span>
-            <span class="bg-secondary text-text-base rounded px-2 py-0.5">{{ item.recipient }}</span>
-          </div>
-          <div class="flex justify-between text-xs text-gray-500 border-t pt-2 mt-2">
-            <span class="flex items-center gap-1">⭐ {{ item.rating }}</span>
-            <span class="flex items-center gap-1">❤️ {{ item.likes }}</span>
-          </div>
-        </div>
-      </div>
+      <app-gift-card
+        *ngFor="let item of giftItems"
+        [item]="item">
+      </app-gift-card>
     </div>
   </section>
 

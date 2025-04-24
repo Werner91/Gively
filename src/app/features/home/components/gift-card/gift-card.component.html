@@ -1,0 +1,26 @@
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer">
+  <div class="relative w-full h-52 overflow-hidden">
+    <img
+      [src]="item.imageUrl"
+      [alt]="item.title"
+      class="absolute inset-0 w-full h-full object-cover border-b transition-transform duration-700 hover:scale-105"
+    />
+  </div>
+  <div class="p-4">
+    <div class="flex justify-between items-start mb-2">
+      <div>
+        <h3 class="font-semibold text-base">{{ item.title }}</h3>
+        <p class="text-sm text-gray-500">{{ item.category }}</p>
+      </div>
+      <span class="text-primary font-bold">{{ item.price }} €</span>
+    </div>
+    <div class="text-xs mb-2">
+      <span class="bg-tertiary text-text-base rounded px-2 py-0.5 mr-2">{{ item.occasion }}</span>
+      <span class="bg-secondary text-text-base rounded px-2 py-0.5">{{ item.recipient }}</span>
+    </div>
+    <div class="flex justify-between text-xs text-gray-500 border-t pt-2 mt-2">
+      <span class="flex items-center gap-1">⭐ {{ item.rating }}</span>
+      <span class="flex items-center gap-1">❤️ {{ item.likes }}</span>
+    </div>
+  </div>
+</div>

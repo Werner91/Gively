@@ -12,11 +12,13 @@ import {
   Facebook, 
   Twitter, 
   ArrowUp, 
-  HeartIcon 
+  HeartIcon,
+  Sparkles
 } from 'lucide-angular';
 import { CategoryContainerModule } from './components/category-container/category-container.module';
 import { FilterButtonModule } from './components/filter-button/filter-button.module';
 import { SortDropdownModule } from './components/sort-dropdown/sort-dropdown.module';
+import { GiftCardModule } from './components/gift-card/gift-card.module';
 
 const routes: Routes = [
   {
@@ -35,6 +37,7 @@ const routes: Routes = [
     CategoryContainerModule,
     FilterButtonModule,
     SortDropdownModule,
+    GiftCardModule,
     RouterModule.forChild(routes),
     LucideAngularModule.pick({
       Gift,
@@ -44,7 +47,8 @@ const routes: Routes = [
       Instagram,
       Facebook,
       Twitter,
-      ArrowUp
+      ArrowUp,
+      Sparkles
     })
   ]
 })
