@@ -1,0 +1,59 @@
+@import '../../../../../styles/variables';
+
+:host {
+  display: block;
+}
+
+.categories-container {
+  width: 100%;
+  margin: 0 auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  cursor: grab;
+  max-width: 100%;
+  user-select: none;
+  
+  .flex.justify-center {
+    width: fit-content;
+    margin: 0 auto;
+  }
+  
+  &:active {
+    cursor: grabbing;
+    scroll-behavior: auto;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .flex {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(100px, 1fr);
+    gap: 0.25rem;
+    
+    &.justify-center {
+      width: fit-content;
+      margin: 0 auto;
+    }
+  }
+}
+
+.category-button {
+  width: 100%;
+  min-width: 100px;
+  max-width: 120px;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    color: $color-gray-800;
+  }
+}

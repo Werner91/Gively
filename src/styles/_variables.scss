@@ -1,0 +1,23 @@
+// Brand Colors
+$color-primary: #FF6B6B;    // Primary brand color, used for main actions and branding
+$color-secondary: #FFE5CC;   // Secondary color, used for backgrounds and accents
+$color-tertiary: #CCF2FF;    // Tertiary color, used for tags and highlights
+$color-text: #6C7A89;        // Main text color
+
+// UI Colors
+$color-white: #FFFFFF;       // Pure white, used for backgrounds
+$color-gray-100: #F3F4F6;    // Light gray, used for borders
+$color-gray-200: #E5E7EB;    // Medium light gray, used for borders
+$color-gray-400: #9CA3AF;    // Medium gray, used for inactive icons
+$color-gray-500: #6B7280;    // Medium dark gray, used for secondary text
+$color-gray-800: #1e2939;
+$color-gray-900: #111827;    // Very dark gray, used for headings
+
+// Semantic Colors
+$color-success: #4ECDC4;     // Success states
+$color-warning: #FFD166;     // Warning states
+$color-dark: #212121;        // Dark accents
+
+// Opacity Variants
+$color-primary-light: rgba($color-primary, 0.2);  // Used for focus states
+$color-white-20: rgba($color-white, 0.2);         // Used for hover effects

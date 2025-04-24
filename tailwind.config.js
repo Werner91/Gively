@@ -1,9 +1,19 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./src/**/*.{html,ts}"
+  ],
   theme: {
     extend: {
       fontFamily: {
-        quicksand: ['"Quicksand"', "sans-serif"]
+        sans: ['Inter', 'sans-serif'],
+        quicksand: ['Quicksand', 'sans-serif']
+      },
+      colors: {
+        primary: '#FF6B6B',
+        secondary: '#FFE5CC',
+        tertiary: '#CCF2FF',
+        'text-base': '#6C7A89'
       }
     },
   },

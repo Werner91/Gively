@@ -1,0 +1,42 @@
+:host {
+  display: block;
+}
+
+.modal-overlay {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+input[type="radio"] {
+  &:checked {
+    background-color: #FF6B6B;
+    border-color: #FF6B6B;
+  }
+}
+
+button {
+  transition: all 0.2s ease;
+}

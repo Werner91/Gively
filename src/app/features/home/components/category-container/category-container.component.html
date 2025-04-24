@@ -1,0 +1,64 @@
+<div class="relative flex-1 overflow-hidden">
+  <button 
+    *ngIf="showNavigation"
+    (click)="scrollCategories('left')" 
+    [class.opacity-50]="isAtStart"
+    [class.cursor-not-allowed]="isAtStart"
+    [disabled]="isAtStart"
+    class="absolute left-0 z-10 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-all top-1/2 -translate-y-1/2"
+  >
+    <lucide-icon name="chevron-left" class="w-5 h-5 text-gray-600" />
+  </button>
+
+  <div class="categories-container overflow-x-auto scroll-smooth mx-12 touch-pan-x" [class.centered]="!showNavigation">
+    <div class="flex p-2" [class.justify-center]="!showNavigation">
+      <button class="category-button" [class.text-primary]="activeTab === 'popular'">
+        <lucide-icon name="heart" class="w-6 h-6" />
+        <span class="text-sm font-medium whitespace-nowrap">Beliebt</span>
+      </button>
+      <button class="category-button" [class.text-primary]="activeTab === 'birthday'">
+        <lucide-icon name="cake" class="w-6 h-6" />
+        <span class="text-sm font-medium whitespace-nowrap">Geburtstag</span>
+      </button>
+      <button class="category-button" [class.text-[#FF6B6B]]="activeTab === 'birth'">
+        <lucide-icon name="baby" class="w-6 h-6" />
+        <span class="text-sm font-medium whitespace-nowrap">Geburt</span>
+      </button>
+      <button class="category-button" [class.text-[#FF6B6B]]="activeTab === 'wedding'">
+        <lucide-icon name="gem" class="w-6 h-6" />
+        <span class="text-sm font-medium whitespace-nowrap">Hochzeit</span>
+      </button>
+      <button class="category-button" [class.text-[#FF6B6B]]="activeTab === 'christmas'">
+        <lucide-icon name="tree-pine" class="w-6 h-6" />
+        <span class="text-sm font-medium whitespace-nowrap">Weihnachten</span>
+      </button>
+      <button class="category-button" [class.text-[#FF6B6B]]="activeTab === 'easter'">
+        <lucide-icon name="egg" class="w-6 h-6" />
+        <span class="text-sm font-medium whitespace-nowrap">Ostern</span>
+      </button>
+      <button class="category-button" [class.text-[#FF6B6B]]="activeTab === 'mothersday'">
+        <lucide-icon name="flower" class="w-6 h-6" />
+        <span class="text-sm font-medium whitespace-nowrap">Muttertag</span>
+      </button>
+      <button class="category-button" [class.text-[#FF6B6B]]="activeTab === 'fathersday'">
+        <lucide-icon name="beer" class="w-6 h-6" />
+        <span class="text-sm font-medium whitespace-nowrap">Vatertag</span>
+      </button>
+      <button class="category-button" [class.text-[#FF6B6B]]="activeTab === 'justbecause'">
+        <lucide-icon name="signature" class="w-6 h-6" />
+        <span class="text-sm font-medium whitespace-nowrap">Personalisiert</span>
+      </button>
+    </div>
+  </div>
+
+  <button 
+    *ngIf="showNavigation"
+    (click)="scrollCategories('right')" 
+    [class.opacity-50]="isAtEnd"
+    [class.cursor-not-allowed]="isAtEnd"
+    [disabled]="isAtEnd"
+    class="absolute right-0 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-all top-1/2 -translate-y-1/2"
+  >
+    <lucide-icon name="chevron-right" class="w-6 h-6 text-gray-600" />
+  </button>
+</div>

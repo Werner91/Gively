@@ -1,0 +1,171 @@
+<div class="min-h-screen text-text-base">
+  <header class="bg-white sticky top-0 z-50 border-b border-gray-200 shadow-sm">
+    <div class="max-w-screen-2xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2 text-primary font-quicksand text-2xl font-bold">
+        <lucide-icon name="gift" class="w-6 h-6" /> Givly
+      </div>
+      <nav class="hidden md:flex gap-6 text-sm font-medium">
+        <a href="#" class="hover:text-gray-800">Suchen</a>
+        <a href="#" class="hover:text-gray-800">Entdecken</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section relative text-center py-20 px-4 overflow-hidden">
+    <div class="hero-background absolute inset-0 -z-10"></div>
+    <h1 class="text-4xl md:text-5xl font-quicksand font-bold text-gray-900 mb-6">
+      Entdecke die perfekten Geschenke
+    </h1>
+    <p class="text-gray-700 text-lg max-w-2xl mx-auto mb-8">
+      Finde einzigartige und passende Geschenkideen für jeden Anlass und jede Person – einfach, schnell und inspirierend
+    </p>
+    <div class="max-w-3xl mx-auto flex items-center gap-3">
+      <div class="flex flex-1 items-center bg-white rounded-full px-4 py-3 shadow-md transition-shadow hover:shadow-lg focus-within:shadow-lg">
+        <input
+          type="text"
+          placeholder="Für welchen Anlass suchst du ein Geschenk?"
+          class="flex-1 bg-transparent outline-none text-sm px-2"
+        />
+        <button class="ml-4 w-10 h-10 rounded-full bg-primary flex items-center justify-center shrink-0 relative overflow-hidden group">
+          <lucide-icon name="search" class="w-5 h-5 text-white" />
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <app-filter-modal
+    [isOpen]="showFilterModal"
+    [currentFilters]="activeFilters"
+    (closeModal)="toggleFilterModal()"
+    (applyFilters)="handleApplyFilters($event)"
+    (clearFilters)="handleClearFilters()">
+  </app-filter-modal>
+
+<section class="max-w-screen-2xl mx-auto px-4">
+  <!-- MOBIL: Sort + Filter oben über den Kategorien -->
+  <div class="xl:hidden flex justify-between items-center px-2 mb-4">
+    <!-- Mobile Sortier-Dropdown -->
+    <app-sort-dropdown
+      [selectedValue]="selectedSort"
+      (sortChange)="selectedSort = $event">
+    </app-sort-dropdown>
+
+    <!-- Mobile Filter-Button -->
+    <app-filter-button
+      [activeFiltersCount]="getActiveFiltersCount()"
+      (filterClick)="toggleFilterModal()">
+    </app-filter-button>
+  </div>
+  <div class="xl:hidden">
+    <app-category-container
+      [activeTab]="activeTab"
+      [showNavigation]="showNavigation"
+      [isAtStart]="isAtStart"
+      [isAtEnd]="isAtEnd">
+    </app-category-container>
+  </div>
+
+  <!-- DESKTOP: Sortierung, Kategorien, Filter -->
+  <div class="hidden xl:flex md:items-center md:justify-between md:flex-nowrap gap-4 md:gap-6 mb-8">
+    <!-- Dropdown -->
+    <div class="relative shrink-0 md:order-none flex items-center h-[42px]">
+      <app-sort-dropdown
+        [selectedValue]="selectedSort"
+        (sortChange)="selectedSort = $event">
+      </app-sort-dropdown>
+    </div>
+
+    <!-- Kategorie-Buttons -->
+    <div class="flex-1 overflow-hidden">
+      <app-category-container
+        [activeTab]="activeTab"
+        [showNavigation]="showNavigation"
+        [isAtStart]="isAtStart"
+        [isAtEnd]="isAtEnd">
+      </app-category-container>
+    </div>
+
+    <!-- Filter-Button -->
+    <div class="shrink-0 relative md:order-none md:ml-auto ml-auto">
+      <app-filter-button
+        [activeFiltersCount]="getActiveFiltersCount()"
+        (filterClick)="toggleFilterModal()">
+      </app-filter-button>
+    </div>
+  </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div *ngFor="let item of giftItems" class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
+        <img
+          [src]="item.imageUrl"
+          [alt]="item.title"
+          class="w-full h-52 object-cover border-b"
+        />
+        <div class="p-4">
+          <div class="flex justify-between items-start mb-2">
+            <div>
+              <h3 class="font-semibold text-base">{{ item.title }}</h3>
+              <p class="text-sm text-gray-500">{{ item.category }}</p>
+            </div>
+            <span class="text-primary font-bold">{{ item.price }} €</span>
+          </div>
+          <div class="text-xs mb-2">
+            <span class="bg-tertiary text-text-base rounded px-2 py-0.5 mr-2">{{ item.occasion }}</span>
+            <span class="bg-secondary text-text-base rounded px-2 py-0.5">{{ item.recipient }}</span>
+          </div>
+          <div class="flex justify-between text-xs text-gray-500 border-t pt-2 mt-2">
+            <span class="flex items-center gap-1">⭐ {{ item.rating }}</span>
+            <span class="flex items-center gap-1">❤️ {{ item.likes }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-white mt-20 border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 py-12">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex items-center gap-2 text-[#FF6B6B] font-quicksand text-xl font-bold">
+          <lucide-icon name="gift" class="w-5 h-5" /> Givly
+        </div>
+        
+        <nav class="flex flex-col md:flex-row gap-4 md:gap-8 text-sm">
+          <a href="#" class="hover:text-gray-800">Über uns</a>
+          <a href="#" class="hover:text-gray-800">Datenschutz</a>
+          <a href="#" class="hover:text-gray-800">Impressum</a>
+          <a href="#" class="hover:text-gray-800">Kontakt</a>
+        </nav>
+        
+        <div class="flex gap-4">
+          <a href="#" class="text-gray-400 hover:text-gray-800" aria-label="Instagram">
+            <lucide-icon name="instagram" class="w-5 h-5" />
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-800" aria-label="Facebook">
+            <lucide-icon name="facebook" class="w-5 h-5" />
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-800" aria-label="Twitter">
+            <lucide-icon name="twitter" class="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+      
+      <div class="mt-8 pt-8 border-t border-gray-100 text-center text-sm text-gray-400">
+        <p class="mb-4 flex flex-col sm:flex-row items-center justify-center gap-1">
+          <span>Givly nutzt Affiliate-Links. Wenn du darüber etwas kaufst, erhalten wir eine kleine Provision. Für dich entstehen dabei keine zusätzlichen Kosten – versprochen</span>
+          <lucide-icon name="heart-icon" class="w-3 h-3" />
+        </p>
+        <p>© 2025 Givly. Alle Rechte vorbehalten.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button 
+    *ngIf="showScrollTop"
+    (click)="scrollToTop()"
+    class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:opacity-90 hover:-translate-y-1 group"
+  >
+    <lucide-icon name="arrow-up" class="w-6 h-6" />
+    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out rounded-full"></div>
+  </button>
+</div>

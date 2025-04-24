@@ -1,0 +1,67 @@
+@import '../../../styles/variables';
+
+:host {
+  display: block;
+}
+
+.gift-card {
+  &:hover {
+    transform: translateY(-0.5rem);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+.search-input {
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $color-primary-light;
+  }
+}
+
+.filter-button {
+  &:hover {
+    .icon {
+      color: $color-primary;
+    }
+  }
+}
+
+.popular-tag {
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: $color-white-20;
+  }
+}
+
+.hero-section {
+  background-color: #fff;
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-background {
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(255, 107, 107, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 229, 204, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(204, 242, 255, 0.05) 0%, transparent 50%),
+    repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(255, 107, 107, 0.03) 20px, rgba(255, 107, 107, 0.03) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(255, 229, 204, 0.03) 20px, rgba(255, 229, 204, 0.03) 40px);
+  opacity: 0.8;
+  animation: backgroundFloat 30s ease-in-out infinite;
+}
+
+@keyframes backgroundFloat {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(5px, 5px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-5px, 5px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(-5px, -5px) rotate(1deg);
+  }
+}
