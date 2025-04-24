@@ -1,9 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoryContainerComponent } from './category-container.component';
-import { LucideAngularModule, Heart, Cake, Baby, Gem, TreePine, Egg, Flower, Beer, Signature, ChevronLeft, ChevronRight } from 'lucide-angular';
+import { 
+  LucideAngularModule, 
+  Heart, 
+  Cake, 
+  Baby, 
+  Gem, 
+  TreePine, 
+  Egg, 
+  Flower, 
+  Beer, 
+  Signature, 
+  ChevronLeft, 
+  ChevronRight 
+} from 'lucide-angular';
 
 @NgModule({
+  declarations: [CategoryContainerComponent],
   imports: [
     CommonModule,
     LucideAngularModule.pick({
@@ -20,7 +34,6 @@ import { LucideAngularModule, Heart, Cake, Baby, Gem, TreePine, Egg, Flower, Bee
       ChevronRight
     })
   ],
-  declarations: [CategoryContainerComponent],
   exports: [CategoryContainerComponent]
 })
 export class CategoryContainerModule { }

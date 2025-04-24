@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SortDropdownComponent } from './sort-dropdown.component';
-import { LucideAngularModule, ChevronDown, Check } from 'lucide-angular';
+import { 
+  LucideAngularModule, 
+  ChevronDown, 
+  Check 
+} from 'lucide-angular';
 
 @NgModule({
+  declarations: [SortDropdownComponent],
   imports: [
     CommonModule,
     LucideAngularModule.pick({
@@ -11,7 +16,6 @@ import { LucideAngularModule, ChevronDown, Check } from 'lucide-angular';
       Check
     })
   ],
-  declarations: [SortDropdownComponent],
   exports: [SortDropdownComponent]
 })
 export class SortDropdownModule { }

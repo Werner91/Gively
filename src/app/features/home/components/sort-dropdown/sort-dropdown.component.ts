@@ -1,24 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LucideAngularModule, ChevronDown, Check } from 'lucide-angular';
-
-interface SortOption {
-  value: string;
-  label: string;
-}
+import { SortOption } from '../../../../shared/models/sort-option.interface';
 
 @Component({
   selector: 'app-sort-dropdown',
   templateUrl: './sort-dropdown.component.html',
   styleUrls: ['./sort-dropdown.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    LucideAngularModule.pick({
-      ChevronDown,
-      Check
-    })
-  ]
+  standalone: false
 })
 export class SortDropdownComponent {
   options: SortOption[] = [

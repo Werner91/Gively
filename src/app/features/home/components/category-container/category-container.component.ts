@@ -1,28 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LucideAngularModule, Heart, Cake, Baby, Gem, TreePine, Egg, Flower, Beer, Signature, ChevronLeft, ChevronRight } from 'lucide-angular';
 
 @Component({
   selector: 'app-category-container',
   templateUrl: './category-container.component.html',
   styleUrls: ['./category-container.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    LucideAngularModule.pick({
-      Heart,
-      Cake,
-      Baby,
-      Gem,
-      TreePine,
-      Egg,
-      Flower,
-      Beer,
-      Signature,
-      ChevronLeft,
-      ChevronRight
-    })
-  ]
+  standalone: false
 })
 export class CategoryContainerComponent {
   @Input() activeTab = 'popular';

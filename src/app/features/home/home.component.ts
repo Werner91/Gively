@@ -1,46 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LucideAngularModule, Gift, Search, SlidersHorizontal, Instagram, Facebook, Twitter, ArrowUp, HeartIcon } from 'lucide-angular';
-import { CategoryContainerComponent } from './components/category-container/category-container.component';
-import { FilterButtonComponent } from './components/filter-button/filter-button.component';
-import { SortDropdownComponent } from './components/sort-dropdown/sort-dropdown.component';
-import { FilterModalComponent } from '../../shared/components/filter-modal/filter-modal.component';
-import { FilterOptions } from '../../shared/components/filter-modal/filter-modal.component';
-
-interface GiftItem {
-  id: number;
-  title: string;
-  category: string;
-  price: string;
-  occasion: string;
-  recipient: string;
-  rating: string;
-  likes: number;
-  imageUrl: string;
-}
+import { FilterOptions } from '../../shared/models/filter-options.interface';
+import { GiftItem } from '../../shared/models/gift-item.interface';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    CategoryContainerComponent,
-    FilterButtonComponent,
-    SortDropdownComponent,
-    FilterModalComponent,
-    LucideAngularModule.pick({
-      Gift,
-      Search,
-      SlidersHorizontal,
-      HeartIcon,
-      Instagram,
-      Facebook,
-      Twitter,
-      ArrowUp
-    })
-  ]
+  standalone: false
 })
 export class HomeComponent {
   selectedSort = 'popular';

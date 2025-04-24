@@ -3,10 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { SharedModule } from '../../shared/shared.module';
+import { 
+  LucideAngularModule, 
+  Gift, 
+  Search, 
+  SlidersHorizontal, 
+  Instagram, 
+  Facebook, 
+  Twitter, 
+  ArrowUp, 
+  HeartIcon 
+} from 'lucide-angular';
 import { CategoryContainerModule } from './components/category-container/category-container.module';
 import { FilterButtonModule } from './components/filter-button/filter-button.module';
 import { SortDropdownModule } from './components/sort-dropdown/sort-dropdown.module';
-import { LucideAngularModule, Gift, Search, SlidersHorizontal, Instagram, Facebook, Twitter, ArrowUp, HeartIcon, ArrowUpDown, ChevronDown, Check } from 'lucide-angular';
 
 const routes: Routes = [
   {
@@ -34,9 +44,6 @@ const routes: Routes = [
       Instagram,
       Facebook,
       Twitter,
-      ArrowUpDown,
-      ChevronDown,
-      Check,
       ArrowUp
     })
   ]

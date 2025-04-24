@@ -1,31 +1,12 @@
 import { Component, EventEmitter, Input, Output, OnInit, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { LucideAngularModule, X, Baby, User, UserCog } from 'lucide-angular';
-
-export interface FilterOptions {
-  ageGroup: string;
-  gender: string;
-  priceRange: { min: number; max: number };
-  giftType: string;
-  deliverableUntil: Date | null;
-}
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { FilterOptions } from '../../models/filter-options.interface';
 
 @Component({
   selector: 'app-filter-modal',
   templateUrl: './filter-modal.component.html',
   styleUrls: ['./filter-modal.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    LucideAngularModule.pick({
-      X,
-      Baby,
-      User,
-      UserCog
-    })
-  ]
+  standalone: false
 })
 export class FilterModalComponent implements OnInit {
   @Input() isOpen = false;

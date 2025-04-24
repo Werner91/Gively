@@ -1,25 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FilterModalComponent } from './components/filter-modal/filter-modal.component';
-import { LucideAngularModule, X, Baby, User, UserCog } from 'lucide-angular';
+import { FilterModalModule } from './components/filter-modal/filter-modal.module';
 
 @NgModule({
-  declarations: [
-    FilterModalComponent
-  ],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-    LucideAngularModule.pick({
-      X,
-      Baby,
-      User,
-      UserCog
-    })
+    FilterModalModule
   ],
   exports: [
-    FilterModalComponent
+    FilterModalModule
   ]
 })
 export class SharedModule { }
